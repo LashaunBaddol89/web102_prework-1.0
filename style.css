@@ -1,26 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
 
+
+/* Default (Day Mode) */
 body {
     font-family: 'Cabin';
-    background-color: #758190;
+    background-color:#758190 ;
+    color: black;   
+    margin: 0;
+    padding: 0;
+   
+}
+/* General header styling with a border-bottom */
+h2, p {
+    text-align: center;
+    margin: 20px 0;
+    padding-top: 20px;
+    position: relative; /* Required for positioning the pseudo-element */
 }
 
-#tentacles {
-    width: 50px;
+/* Add a line under each h2 */
+h2::after {
+    content: '';
+    display: block;
+    width: 5%; /* Adjust the width of the line as needed */
+    height: 5px; /* Adjust the thickness of the line */
+    background-color: #ffffff; /* Color of the line */
+    margin: 10px auto 0; /* Center the line and add margin */
+}
+
+/* Specific styling for sections if needed */
+#top-games h2::after,
+#games-container h2::after {
+    width: 80%; /* Adjust width for specific sections if necessary */
+}
+.title{
+    margin-bottom: 10px;
+    margin-top: 100px;
+}
+/* Night Mode */
+body.night-mode {
+    background-color: rgba(0, 0, 0, 0.626);
+    color: rgb(255, 255, 255);
+
+}
+
+/* Styling for the toggle switch */
+.toggle-container {
+    text-align: center;
+    margin-top: 20px;
+    margin: 1em 0;
+}
+.like-button{
+    text-align: center;
+    margin: 1em 0;
+}
+
+/* Top game and runner-up specific styles */
+#first-game, #second-game {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Adjust background color for night mode */
+body.night-mode #first-game,
+body.night-mode #second-game {
+    background-color: #333;
 }
 
 .header {
     display: flex;
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Center-align items horizontally */
     background-color: lightblue;
     padding: 1%;
-    align-items: center;
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-top: -10px;
+
+  
+    text-align: center; /* Center-align text */
 }
+
+#tentacles {
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Maintain aspect ratio */
+    margin-bottom: 5px; /* Space between image and text */
+}
+.parallax {
+    background-image: url('C:\Users\jmab2\web102_prework-1.0\assets\m_1.png');
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+   
+}
+/* Optional: style content to be placed on top of parallax */
+.parallax-content {
+    position: relative;
+    z-index: 1; /* Make sure content is on top */
+    color: white; /* Adjust text color as needed */
+    text-align: center; /* Center the content */
+    padding: 20px; /* Add some padding */
+}
+  
 
 .stats-container {
     display: flex;
+    align-items: center;
+    
+}
+.stats-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0 30px lightblue;
 }
 
 .stats-card {
@@ -30,6 +121,15 @@ body {
     margin: 1%;
     width: 100%;
     text-align: center;
+}
+
+body.night-mode  .stats-container:hover{
+    cursor: pointer;
+    box-shadow: 0 0 30px rgb(233, 233, 144);
+}
+body.night-mode  .stats-card:hover{
+    cursor: pointer;
+    box-shadow: 0 0 30px rgb(233, 233, 144);
 }
 
 #num-contributions, #total-raised, #num-games {
@@ -53,23 +153,408 @@ body {
     padding: 1%;
     margin: 1%;
     width: 300px;
+    border: 1px solid #100b0b;
+    background-color: #fff;
     text-align: center;
     border-radius: 7px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 .game-card:hover {
     cursor: pointer;
     box-shadow: 0 0 30px lightblue;
 }
+body.night-mode .game-card:hover{
+    cursor: pointer;
+    box-shadow: 0 0 30px rgb(233, 233, 144);
+
+}
 
 #button-container {
     text-align: center;
+    z-index: 1;
 }
 
-button {
+
+
+
+button, .stats-card {
+    transition: all 0.3s ease;
     font-family: 'Cabin';
     border: none;
     padding: 1%;
     margin: 1%;
     border-radius: 7px;
+}
+
+button:hover, .stats-card:hover{
+    transform: scale(1.05);    
+    cursor: pointer;
+    box-shadow: 0 0 30px lightblue; 
+}
+body.night-mode button:hover {
+    transform: scale(1.05);    
+    cursor: pointer;
+    box-shadow: 0 0 30px rgb(233, 233, 144);
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.game-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.game-card p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.top-game-card, .runner-up-card {
+    max-width: 500px; 
+    margin: 10px auto; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+
+}
+
+.top-game-card img, .runner-up-card img {
+    max-width: 100%; 
+    height: auto; 
+}
+
+.top-game-card h3, .runner-up-card h3 {
+    font-size: 1.2em; 
+}
+
+
+#search-container {
+   position: relative;
+   left: 300px;
+    display: flex;
+    justify-content: center; 
+    margin-top: 20px; 
+    
+    border-radius: 15px; 
+    padding: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 100%; 
+    max-width: 850px; 
+    align-items: center; 
+  }
+  
+ 
+  #search-input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px; 
+    border: 1px solid #ccc;
+    flex: 1; 
+  }
+  
+  #search-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px; 
+    border: none; 
+    background-color: #007bff; 
+    color: white;
+    cursor: pointer; 
+  }
+  
+  #search-btn:hover {
+    background-color: #0056b3; 
+  }
+
+  #side-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    padding: 20px;
+    display: none; 
+    overflow-y: auto;
+    z-index: 1;
+  }
+  
+  #close-panel-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #close-panel-btn:hover {
+    background-color: #c82333;
+  }
+  
+  #search-results {
+    margin-top: 20px;
+  }
+  #description-container{
+    text-align: center;
+    
+  }
+.description{
+    text-align:center ;
+ 
+   
+
+}
+/* Optional: Center the header text */
+h2, p{
+    text-align: center;
+    margin: 20px 0;
+    padding-top:20px;
+}
+
+/* Optional: Additional styling for headers */
+  h2 {
+    margin: 0 auto;
+}
+.progress-bar {
+    background-color: #ddd;
+    border-radius: 25px;
+}
+
+.progress-bar-fill {
+    background-color: #4caf50;
+    height: 20px;
+    border-radius: 25px;
+    width: 0;
+    transition: width 0.5s;
+}
+
+/* Footer styles */
+.footer {
+    position: relative;
+    background: url('assets/m_1.png') no-repeat center center/cover;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    height: 450px;
+    margin-top: 50px;
+}
+
+.footer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+        background-image: linear-gradient(to top, black, transparent);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.footer h2, .footer p {
+    margin: 10px 0;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    display:inline-flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.social-icons a:hover {
+    background-color: white;
+    color: #aaa;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+/* Night mode styles */
+body.night-mode .footer {
+    background: url('assets/428690.jpg') no-repeat center center/cover;
+}
+
+body.night-mode .header{
+    display: flex;
+    background-color: rgb(233, 233, 144);
+    padding: 1%;
+    align-items: center;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: -10px;
+    padding-top:10px;
+    
+}
+.mist-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none; 
+    overflow: hidden;
+}
+
+.mist-overlay img {
+    position: absolute;
+    width: 1000%;
+    height: 100%;
+    object-fit: cover;
+    content:'';
+    background-size: contain;
+
+    animation: moveMist 100s linear infinite;
+}
+
+@keyframes moveMist {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.glass{
+   margin-top: 80px;
+   margin-bottom: 90px;
+
+}
+/* Slideshow container */
+.slideshow-container {
+    width: 500px; /* Set the width of the container */
+    height: 500px;
+    position: relative;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Image styling to ensure it fits within the container */
+  .slideshow-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    align-items: center;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active {
+    background-color: #717171;
+  }
+  
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+/* Container for the video */
+
+
+/* Style the video element */
+.game-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the container */
+    opacity: 0; /* Hide the video by default */
+    transition: opacity 0.3s ease; /* Smooth transition for the hover effect */
+    border-radius: 10px;
+}
+
+/* Show the video on hover */
+.stats-card:hover .game-video {
+    opacity: 1; /* Show the video */
+}
+
+/* Ensure the video starts playing on hover */
+.stats-card:hover .game-video {
+    animation: playVideo 0s forwards; /* Ensure the video starts playing */
+}
+
+@keyframes playVideo {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
 }

@@ -4,24 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width">
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
   </head>
 
-  <body>
-    <!-- header row with logo -->
-    <div class="header">
+  <body> 
+    <div class="header" data-aos="fade-down">
         <img id="tentacles" src="assets/tentacles.png">
-        <h1 class="header-text">Sea Monster Crowdfunding</h1>
+        <h1 class="header-text"  >Sea Monster Crowdfunding</h1>
+        
     </div>
 
+    <div class="toggle-container">
+        <input type="checkbox" id="toggle-switch" />
+        <label for="toggle-switch">Night Mode</label>
+    </div>
+   
+
+    
+    <!-- like button -->
+    <div class="like-button">
+        <i class="ri-heart-line"></i> <span class="like-count">0</span>
+    </div>
+
+    
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search for a game...">
+        <button id="search-btn">Search</button>
+    </div>
+   
+    
+      <!-- Side panel -->
+    <div id="side-panel">
+        <button id="close-panel-btn">Close</button>
+        <h2 data-aos="fade-right" data-aos-delay="50">What would you like to play today?</h2>
+        <div id="search-results"></div>
+    </div>
+    
+
     <!-- background info about company -->
-    <h2>Welcome to Sea Monster!</h2>
+    <h2 class="description" data-aos="fade-right" data-aos-delay="50">Welcome to Sea Monster!</h2>
     <div id="description-container">
-        <p>The purpose of our company is to fund independent games. We've been in operation for 12 years.</p>
+        <p  data-aos="fade-right" data-aos-delay="50">The purpose of our company is to fund independent games. We've been in operation for 12 years.</p>
     </div>
 
     <!-- top games & other interesting stats -->
     <h2>Stats</h2>
-    <div class="stats-container">
+    <div class="stats-container" data-aos="zoom-in">
         <div class="stats-card">
             <h3>Individual Contributions</h3>
             <p id="num-contributions">
@@ -39,26 +72,118 @@
         </div>
     </div>
     <div class="stats-container" id="top-games">
-        <div class="stats-card" id="first-game">
+        <div class="stats-card" id="first-game" data-aos="fade-down">
             <h3>🥇 Top Funded Game</h3>
+            <video class="game-video" src="assets\ssvid.net - Zoo Tycoon The Board Game  Everything You Need to Know_v144P.mp4" muted></video>
         </div>
-        <div class="stats-card" id="second-game">
+        <div class="stats-card" id="second-game" data-aos="fade-down">
             <h3>🥈 Runner Up</h3>
+            <video class="game-video" src="assets\ssvid.net - How to Read Minds 2 Kit by Peter Turner and Ellusionist Unboxing and First Thoughts HTRM2_360p.mp4" muted></video>
         </div>
     </div>
+
+
 
     <!-- list of games funded by Sea Monster -->
     <h2>Our Games</h2>
     <p>Check out each of our games below!</p>
     <div id="button-container">
-        <button id="unfunded-btn">Show Unfunded Only</button>
-        <button id="funded-btn">Show Funded Only</button>
-        <button id="all-btn">Show All Games</button>
+        <button id="unfunded-btn" data-aos="fade-left"     >Show Unfunded Only</button>
+        <button id="funded-btn"data-aos="zoom-in" >Show Funded Only</button>
+        <button id="all-btn" data-aos="fade-right"    >Show All Games</button>
     </div>
-    <div id="games-container">
+    <div id="games-container" data-aos="zoom-in"     data-aos-easing="linear"
+    data-aos-duration="1500">
 
     </div>
+    <div class = "glass" data-aos="fade-down" data-aos-easing="linear"
+    data-aos-duration="1500">
+        <h2 class = "title" >Top Investors This Week</h2>
+        <div class="line"></div>
+        <div class="slideshow-container"data-aos="zoom-in">
+
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <img src="assets\R (11).png" style="width:100%">
+                <div class="text">Apple - $50000</div>
+             </div>
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <img src="assets\logo_codepath_darkandgreen-2.png" style="width:100%">
+                <div class="text">Codepath - $30000</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img src="assets/vector-illustration-full-moon-close-up-around-stars.png" style="width:100%">
+                <div class="text">Moon Corp - $20000</div>
+            </div>
+        </div>
+        <div style="text-align:center">
+
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span>
+        
+        </div>
+    </div>
+    
+    <br>
+    
+    <!-- bottom of screen maybe footer -->
+    <footer class="footer" data-aos="fade-right" data-aos-delay="50">
+        <div class="footer-overlay">
+            <h2>Contact Me</h2>
+            <p>Email: ldbaddol@gmail.com</p>
+            <p>Phone: (301) 377-1882</p>
+            <div class="social-icons" data-aos="fade-right">
+                <a href="https://www.instagram.com/paradise_resort_travel/"><i class="ri-instagram-fill"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100095084051884"><i class="ri-facebook-circle-fill"></i></a> 
+                <a href="https://www.facebook.com/profile.php?id=100095084051884"><i class="ri-linkedin-fill"></i></a>
+            </div>
+        </div>
+        <div class="mist-overlay">
+            <img src="assets/fog-1.png" alt="Mist">
+        </div>
+    </footer>
+
 
     <script type="module" src="index.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/parallax-js@1.5.0/parallax.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var scene = document.getElementById('scene');
+          var parallax = new Parallax(scene);
+        });
+    </script>
+    <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src = "https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        AOS.init();
+        document.addEventListener('DOMContentLoaded', function () {
+          var scene = document.getElementById('scene');
+          var parallax = new Parallax(scene);
+        });
+
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+    </script>
   </body>
 </html>
